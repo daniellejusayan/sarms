@@ -1,0 +1,172 @@
+{
+ "changes": {
+  "new": [
+   "kedro.pipeline -> kedro.framework.hooks"
+  ],
+  "kept": [],
+  "retired": [],
+  "A5": {
+   "holds": true,
+   "topological_order": [
+    "kedro.pipeline",
+    "kedro.framework.hooks"
+   ]
+  }
+ },
+ "near_misses": [
+  {
+   "from": "kedro.config",
+   "to": "kedro.__main__",
+   "failed": [
+    "A4_substance"
+   ]
+  },
+  {
+   "from": "kedro.config",
+   "to": "kedro.framework.hooks",
+   "failed": [
+    "A1_direction"
+   ]
+  },
+  {
+   "from": "kedro.config",
+   "to": "kedro.ipython",
+   "failed": [
+    "A4_substance"
+   ]
+  },
+  {
+   "from": "kedro.config",
+   "to": "kedro.server",
+   "failed": [
+    "A2_history"
+   ]
+  },
+  {
+   "from": "kedro.framework.hooks",
+   "to": "kedro.framework.session",
+   "failed": [
+    "A1_direction"
+   ]
+  },
+  {
+   "from": "kedro.framework.hooks",
+   "to": "kedro.ipython",
+   "failed": [
+    "A4_substance"
+   ]
+  },
+  {
+   "from": "kedro.framework.hooks",
+   "to": "kedro.runner",
+   "failed": [
+    "A1_direction"
+   ]
+  },
+  {
+   "from": "kedro.framework.project",
+   "to": "kedro.__main__",
+   "failed": [
+    "A4_substance"
+   ]
+  },
+  {
+   "from": "kedro.framework.project",
+   "to": "kedro.ipython",
+   "failed": [
+    "A4_substance"
+   ]
+  },
+  {
+   "from": "kedro.framework.startup",
+   "to": "kedro.ipython",
+   "failed": [
+    "A4_substance"
+   ]
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro.__main__",
+   "failed": [
+    "A4_substance"
+   ]
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro.framework.hooks",
+   "failed": [
+    "A1_direction"
+   ]
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro.inspection",
+   "failed": [
+    "A2_history"
+   ]
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro.ipython",
+   "failed": [
+    "A4_substance"
+   ]
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro.server",
+   "failed": [
+    "A2_history"
+   ]
+  },
+  {
+   "from": "kedro.pipeline",
+   "to": "kedro.__main__",
+   "failed": [
+    "A4_substance"
+   ]
+  },
+  {
+   "from": "kedro.pipeline",
+   "to": "kedro.ipython",
+   "failed": [
+    "A4_substance"
+   ]
+  },
+  {
+   "from": "kedro.pipeline",
+   "to": "kedro.server",
+   "failed": [
+    "A2_history"
+   ]
+  },
+  {
+   "from": "kedro.utils",
+   "to": "kedro.framework.cli",
+   "failed": [
+    "A4_substance"
+   ]
+  },
+  {
+   "from": "kedro.utils",
+   "to": "kedro.framework.context",
+   "failed": [
+    "A4_substance"
+   ]
+  },
+  {
+   "from": "kedro.utils",
+   "to": "kedro.framework.session",
+   "failed": [
+    "A4_substance"
+   ]
+  },
+  {
+   "from": "kedro.utils",
+   "to": "kedro.ipython",
+   "failed": [
+    "A4_substance"
+   ]
+  }
+ ]
+}

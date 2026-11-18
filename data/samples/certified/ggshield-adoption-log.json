@@ -1,0 +1,4062 @@
+{
+ "repo": "ggshield",
+ "at": "ccbd1a2d5cf5eea4c69c120a17357aaefbeeff29",
+ "judge": false,
+ "strict": true,
+ "policy": {
+  "status": "definitive",
+  "worst_case_of_a_wrong_rule": "one future import line re-routed per push, in a one-commit revertible change (G7); nothing existing is rewritten because every adopted pair is absent from the code at adoption",
+  "demotion": "a developer revert of a fix made under the rule sets its severity to low (pass --demote 'A -> B' on the next run)",
+  "re-evaluation": "re-run adopt after each replay window; ids are stable per pair"
+ },
+ "changes": {
+  "new": [],
+  "kept": [],
+  "no_longer_strict": [
+   "ggshield.core.config -> ggshield.cmd.auth",
+   "ggshield.core.config -> ggshield.cmd.secret",
+   "ggshield.core.config -> ggshield.verticals.hmsl",
+   "ggshield.core.config -> ggshield.verticals.secret",
+   "ggshield.core.git_hooks -> ggshield.cmd.secret",
+   "ggshield.core.scan -> ggshield.cmd.secret",
+   "ggshield.core.scan -> ggshield.verticals.secret",
+   "ggshield.utils -> ggshield.cmd.honeytoken",
+   "ggshield.utils -> ggshield.cmd.secret",
+   "ggshield.utils -> ggshield.core.config",
+   "ggshield.utils -> ggshield.core.git_hooks",
+   "ggshield.utils -> ggshield.core.scan",
+   "ggshield.utils -> ggshield.verticals.hmsl",
+   "ggshield.utils -> ggshield.verticals.secret"
+  ],
+  "demotions": [],
+  "uncertified": [
+   {
+    "id": "R-ggshield-definitive-1",
+    "from": "ggshield.utils",
+    "to": "ggshield.core.git_hooks",
+    "failed": [
+     "already enforced by a written rule: ggshield.utils -> ggshield.core"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-2",
+    "from": "ggshield.utils",
+    "to": "ggshield.core.scan",
+    "failed": [
+     "already enforced by a written rule: ggshield.utils -> ggshield.core"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-3",
+    "from": "ggshield.core.config",
+    "to": "ggshield.cmd.auth",
+    "failed": [
+     "already enforced by a written rule: ggshield.core -> ggshield.cmd.auth"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-23",
+    "from": "ggshield.core.config",
+    "to": "ggshield.cmd.config",
+    "failed": [
+     "already enforced by a written rule: ggshield.core -> ggshield.cmd.config"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-5",
+    "from": "ggshield.core.config",
+    "to": "ggshield.cmd.secret",
+    "failed": [
+     "already enforced by a written rule: ggshield.core -> ggshield.cmd.secret"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-6",
+    "from": "ggshield.core.config",
+    "to": "ggshield.verticals.hmsl",
+    "failed": [
+     "already enforced by a written rule: ggshield.core -> ggshield.verticals.hmsl"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-7",
+    "from": "ggshield.core.config",
+    "to": "ggshield.verticals.secret",
+    "failed": [
+     "already enforced by a written rule: ggshield.core -> ggshield.verticals.secret"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-8",
+    "from": "ggshield.core.git_hooks",
+    "to": "ggshield.cmd.secret",
+    "failed": [
+     "already enforced by a written rule: ggshield.core -> ggshield.cmd.secret"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-9",
+    "from": "ggshield.core.scan",
+    "to": "ggshield.cmd.secret",
+    "failed": [
+     "already enforced by a written rule: ggshield.core -> ggshield.cmd.secret"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-10",
+    "from": "ggshield.core.scan",
+    "to": "ggshield.verticals.secret",
+    "failed": [
+     "already enforced by a written rule: ggshield.core -> ggshield.verticals.secret"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-11",
+    "from": "ggshield.utils",
+    "to": "ggshield.cmd.secret",
+    "failed": [
+     "already enforced by a written rule: ggshield.utils -> ggshield.cmd.secret"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-12",
+    "from": "ggshield.utils",
+    "to": "ggshield.verticals.secret",
+    "failed": [
+     "already enforced by a written rule: ggshield.utils -> ggshield.verticals.secret"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-24",
+    "from": "ggshield.verticals.hmsl",
+    "to": "ggshield.cmd.auth",
+    "failed": [
+     "already enforced by a written rule: ggshield.verticals.hmsl -> ggshield.cmd.auth"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-25",
+    "from": "ggshield.verticals.hmsl",
+    "to": "ggshield.cmd.hmsl",
+    "failed": [
+     "already enforced by a written rule: ggshield.verticals.hmsl -> ggshield.cmd.hmsl"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-26",
+    "from": "ggshield.cmd.utils",
+    "to": "ggshield.cmd.auth",
+    "failed": [
+     "already enforced by a written rule: ggshield.cmd.utils -> ggshield.cmd.auth"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-27",
+    "from": "ggshield.cmd.utils",
+    "to": "ggshield.cmd.config",
+    "failed": [
+     "already enforced by a written rule: ggshield.cmd.utils -> ggshield.cmd.config"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-28",
+    "from": "ggshield.cmd.utils",
+    "to": "ggshield.cmd.hmsl",
+    "failed": [
+     "already enforced by a written rule: ggshield.cmd.utils -> ggshield.cmd.hmsl"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-29",
+    "from": "ggshield.cmd.utils",
+    "to": "ggshield.cmd.honeytoken",
+    "failed": [
+     "already enforced by a written rule: ggshield.cmd.utils -> ggshield.cmd.honeytoken"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-30",
+    "from": "ggshield.cmd.utils",
+    "to": "ggshield.cmd.secret",
+    "failed": [
+     "already enforced by a written rule: ggshield.cmd.utils -> ggshield.cmd.secret"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-20",
+    "from": "ggshield.utils",
+    "to": "ggshield.cmd.honeytoken",
+    "failed": [
+     "already enforced by a written rule: ggshield.utils -> ggshield.cmd.honeytoken"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-21",
+    "from": "ggshield.utils",
+    "to": "ggshield.core.config",
+    "failed": [
+     "already enforced by a written rule: ggshield.utils -> ggshield.core"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-22",
+    "from": "ggshield.utils",
+    "to": "ggshield.verticals.hmsl",
+    "failed": [
+     "already enforced by a written rule: ggshield.utils -> ggshield.verticals.hmsl"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-31",
+    "from": "ggshield.utils",
+    "to": "ggshield.cmd.utils",
+    "failed": [
+     "already enforced by a written rule: ggshield.utils -> ggshield.cmd.utils"
+    ]
+   },
+   {
+    "id": "R-ggshield-definitive-32",
+    "from": "ggshield.core.git_hooks",
+    "to": "ggshield.core.scan",
+    "failed": [
+     "A1_direction",
+     "A3_reachability"
+    ]
+   }
+  ]
+ },
+ "decisions": [
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.git_hooks",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.scan",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.core",
+   "evidence": "repair+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.cmd.auth",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.cmd.config",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.cmd.secret",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.core.check_updates",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.core.client",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.verticals.secret",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.core.cache",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.core.client",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.core.url_utils",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.core.cache",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.core.client",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.core.git_hooks",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.git_hooks",
+   "to": "ggshield.cmd.secret",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.core.scan",
+   "to": "ggshield.cmd.secret",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.core.scan",
+   "to": "ggshield.verticals.secret",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.core.types",
+   "to": "ggshield.core.filter",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.cmd.secret",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "three_years"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.cmd.utils",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "three_years+names_agree"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.verticals.secret",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "three_years"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.cmd.secret",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.env_utils",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.lines",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.tar_utils",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.verticals.secret",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.verticals.hmsl",
+   "to": "ggshield.cmd.auth",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.verticals.hmsl",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.verticals.secret",
+   "to": "ggshield.cmd.secret",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "sdp_margin"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.cmd.auth",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.cmd.config",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.cmd.secret",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.cmd.utils",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "sdp_margin"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.config",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.cmd.utils",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.core.types",
+   "to": "ggshield.core.cache",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.git_hooks",
+   "to": "ggshield.core.scan",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.dirs",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "three_years"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.core.config",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "three_years+names_agree"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.core.git_hooks",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "three_years+names_agree"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "three_years"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.core.lines",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+consistent"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.core.text_utils",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.cmd",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+substantial+consistent"
+  },
+  {
+   "from": "ggshield.cmd.auth",
+   "to": "ggshield.cmd",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial+consistent"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.cmd",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial+consistent"
+  },
+  {
+   "from": "ggshield.cmd.secret",
+   "to": "ggshield.cmd",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial+consistent"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.core.scan",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.cmd.config",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+never_crossed_at_all+substantial+consistent"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.cmd.secret",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+never_crossed_at_all+substantial+consistent"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.cmd.auth",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+never_crossed_at_all+substantial+consistent"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+never_crossed_at_all+substantial+consistent"
+  },
+  {
+   "from": "ggshield.cmd.honeytoken",
+   "to": "ggshield.cmd",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial+consistent"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+never_crossed_at_all+substantial+consistent"
+  },
+  {
+   "from": "ggshield.cmd.hmsl",
+   "to": "ggshield.cmd",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial+consistent"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+substantial"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.cmd.utils",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.core",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.core.config",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial+consistent"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.core.git_hooks",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.core.scan",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.core.ui",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial+three_years"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.utils",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.verticals",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "ggshield.cmd.auth",
+   "to": "ggshield.core",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.core",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.core.git_hooks",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.core.scan",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.core.ui",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+clean_chain+three_years"
+  },
+  {
+   "from": "ggshield.cmd.hmsl",
+   "to": "ggshield.core.config",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+clean_chain+never_crossed_at_all"
+  },
+  {
+   "from": "ggshield.cmd.hmsl",
+   "to": "ggshield.utils",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+clean_chain+never_crossed_at_all+consistent"
+  },
+  {
+   "from": "ggshield.cmd.secret",
+   "to": "ggshield.core",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.core",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.core.git_hooks",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.core.scan",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "ggshield.core",
+   "to": "ggshield.core.ui",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial+three_years"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.core.git_hooks",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+consistent"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.core.text_utils",
+   "evidence": "repair+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.git_hooks",
+   "to": "ggshield.core",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "ggshield.core.scan",
+   "to": "ggshield.core",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "ggshield.core.types",
+   "to": "ggshield.core.text_utils",
+   "evidence": "repair+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.ui",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+three_years"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.core",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.core.config",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.core.scan",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.core.ui",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial+three_years"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.utils",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "ggshield.verticals.hmsl",
+   "to": "ggshield.core",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "ggshield.verticals.secret",
+   "to": "ggshield.core",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "ggshield.core.git_hooks",
+   "to": "ggshield.core.config",
+   "evidence": "mutual-absence+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+consistent+names_agree"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.cache",
+   "to": "ggshield.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.cache",
+   "to": "ggshield.cmd.secret",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.cache",
+   "to": "ggshield.verticals.secret",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.check_updates",
+   "to": "ggshield.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.cmd.auth",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.cmd.quota",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.cmd.secret",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.cmd.status",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.verticals.auth",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.verticals.secret",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.verticals.auth",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.core.config",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.verticals.secret",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.dirs",
+   "to": "ggshield.core.check_updates",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.dirs",
+   "to": "ggshield.core.config",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.dirs",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.dirs",
+   "to": "ggshield.verticals.secret",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.env_utils",
+   "to": "ggshield.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.cmd.auth",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.cmd.config",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.cmd.install",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.cmd.quota",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.cmd.secret",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.cmd.status",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.core.config",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.verticals.auth",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.verticals.secret",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.filter",
+   "to": "ggshield.cmd.secret",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.filter",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.filter",
+   "to": "ggshield.verticals.secret",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.lines",
+   "to": "ggshield.core.match_span",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.lines",
+   "to": "ggshield.verticals.secret",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.match_span",
+   "to": "ggshield.verticals.secret",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.scanner_ui",
+   "to": "ggshield.cmd.secret",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.scanner_ui",
+   "to": "ggshield.verticals.secret",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.text_utils",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.text_utils",
+   "to": "ggshield.cmd.secret",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.text_utils",
+   "to": "ggshield.cmd.status",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.text_utils",
+   "to": "ggshield.core.lines",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.text_utils",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.text_utils",
+   "to": "ggshield.verticals.secret",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.types",
+   "to": "ggshield.core.config",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.core.client",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.core.scanner_ui",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.url_utils",
+   "to": "ggshield.cmd.auth",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.url_utils",
+   "to": "ggshield.core.config",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.url_utils",
+   "to": "ggshield.verticals.auth",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.cmd.install",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.errors",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.auth",
+   "to": "ggshield.cmd.auth",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.cmd.install",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.cmd.quota",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.cmd.status",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.text_utils",
+   "to": "ggshield.cmd.utils",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.text_utils",
+   "to": "ggshield.core.errors",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.constants",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.verticals.auth",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.cmd.utils",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.cache",
+   "to": "ggshield.cmd.utils",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.core.cache",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.core.env_utils",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.core.errors",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.core.types",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.core.url_utils",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.auth",
+   "to": "ggshield.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.hmsl",
+   "to": "ggshield.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.honeytoken",
+   "to": "ggshield.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.install",
+   "to": "ggshield.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.quota",
+   "to": "ggshield.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.secret",
+   "to": "ggshield.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.status",
+   "to": "ggshield.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.cmd.auth",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.filter",
+   "to": "ggshield.core.cache",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.cmd",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.filter",
+   "to": "ggshield.cmd",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.text_utils",
+   "to": "ggshield.cmd",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.dirs",
+   "to": "ggshield.cmd.install",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.cmd",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.core.scan",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.cache",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.git_hooks",
+   "to": "ggshield.cmd",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.cmd",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.scan",
+   "to": "ggshield.cmd",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.scan",
+   "to": "ggshield.verticals",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.verticals",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.cmd",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.cmd",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core",
+   "to": "ggshield.cmd",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core",
+   "to": "ggshield.cmd.auth",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.core",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.install",
+   "to": "ggshield.cmd",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.quota",
+   "to": "ggshield.cmd",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.status",
+   "to": "ggshield.cmd",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.core",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core",
+   "to": "ggshield.cmd.secret",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core",
+   "to": "ggshield.verticals.secret",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.core",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.cmd.install",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.cmd.quota",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.cmd.status",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core",
+   "to": "ggshield.core.git_hooks",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.client",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.cmd",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.verticals",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.verticals",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core",
+   "to": "ggshield.core.scan",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core",
+   "to": "ggshield.verticals",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.__main__",
+   "to": "ggshield.cmd",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.__main__",
+   "to": "ggshield.cmd.auth",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.__main__",
+   "to": "ggshield.cmd.config",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.__main__",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.__main__",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.__main__",
+   "to": "ggshield.cmd.install",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.__main__",
+   "to": "ggshield.cmd.quota",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.__main__",
+   "to": "ggshield.cmd.secret",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.__main__",
+   "to": "ggshield.cmd.status",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.__main__",
+   "to": "ggshield.core",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.__main__",
+   "to": "ggshield.core.errors",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.__main__",
+   "to": "ggshield.core.text_utils",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.core.cache",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.core.check_updates",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.core.client",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.core.constants",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.core.dirs",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.core.errors",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.core.filter",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.core.tar_utils",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.core.text_utils",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd",
+   "to": "ggshield.verticals.secret",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.auth",
+   "to": "ggshield.cmd.config",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.auth",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.auth",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.auth",
+   "to": "ggshield.cmd.secret",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.auth",
+   "to": "ggshield.core.git_hooks",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.auth",
+   "to": "ggshield.core.scan",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.auth",
+   "to": "ggshield.core.ui",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.auth",
+   "to": "ggshield.utils",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.auth",
+   "to": "ggshield.verticals",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.auth",
+   "to": "ggshield.verticals.secret",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.cmd.auth",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.cmd.secret",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.core.cache",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.core.check_updates",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.core.client",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.core.dirs",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.core.env_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.core.lines",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.core.match_span",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.core.scanner_ui",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.core.tar_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.core.text_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.core.url_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.utils",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.verticals",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.config",
+   "to": "ggshield.verticals.secret",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.hmsl",
+   "to": "ggshield.cmd.auth",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.hmsl",
+   "to": "ggshield.cmd.config",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.hmsl",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.hmsl",
+   "to": "ggshield.cmd.quota",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.hmsl",
+   "to": "ggshield.cmd.secret",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.hmsl",
+   "to": "ggshield.core",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.hmsl",
+   "to": "ggshield.core.filter",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.hmsl",
+   "to": "ggshield.core.git_hooks",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.hmsl",
+   "to": "ggshield.core.scan",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.hmsl",
+   "to": "ggshield.verticals",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.hmsl",
+   "to": "ggshield.verticals.secret",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.honeytoken",
+   "to": "ggshield.cmd.auth",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.honeytoken",
+   "to": "ggshield.cmd.config",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.honeytoken",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.honeytoken",
+   "to": "ggshield.cmd.secret",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.honeytoken",
+   "to": "ggshield.core",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.honeytoken",
+   "to": "ggshield.core.config",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.honeytoken",
+   "to": "ggshield.core.git_hooks",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.honeytoken",
+   "to": "ggshield.core.scan",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.honeytoken",
+   "to": "ggshield.core.ui",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.honeytoken",
+   "to": "ggshield.verticals",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.honeytoken",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.honeytoken",
+   "to": "ggshield.verticals.secret",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.install",
+   "to": "ggshield.core",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.install",
+   "to": "ggshield.core.client",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.install",
+   "to": "ggshield.core.config",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.install",
+   "to": "ggshield.verticals.secret",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.quota",
+   "to": "ggshield.core",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.quota",
+   "to": "ggshield.core.text_utils",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.secret",
+   "to": "ggshield.cmd.auth",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.secret",
+   "to": "ggshield.cmd.config",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.secret",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.secret",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.secret",
+   "to": "ggshield.core.constants",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.secret",
+   "to": "ggshield.verticals",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.secret",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.status",
+   "to": "ggshield.core",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.core.check_updates",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.core.client",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.core.dirs",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.core.env_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.core.filter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.core.lines",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.core.match_span",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.core.scanner_ui",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.core.tar_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.core.url_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.verticals",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.cmd.utils",
+   "to": "ggshield.verticals.secret",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core",
+   "to": "ggshield.core.filter",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core",
+   "to": "ggshield.core.lines",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core",
+   "to": "ggshield.core.text_utils",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.cache",
+   "to": "ggshield.core.filter",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.cache",
+   "to": "ggshield.core.text_utils",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.check_updates",
+   "to": "ggshield.core.ui",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.core.cache",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.core.check_updates",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.core.dirs",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.core.env_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.core.filter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.core.git_hooks",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.core.lines",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.core.match_span",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.core.scan",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.core.scanner_ui",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.core.tar_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.core.text_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.client",
+   "to": "ggshield.core.url_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.core.cache",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.core.env_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.core.filter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.core.lines",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.core.match_span",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.core.scanner_ui",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.config",
+   "to": "ggshield.core.tar_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.core.check_updates",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.core.dirs",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.core.env_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.core.filter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.core.git_hooks",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.core.lines",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.core.match_span",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.core.scan",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.core.scanner_ui",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.core.tar_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.constants",
+   "to": "ggshield.core.ui",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.dirs",
+   "to": "ggshield.core.ui",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.env_utils",
+   "to": "ggshield.core.text_utils",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.core.check_updates",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.core.dirs",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.core.env_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.core.filter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.core.match_span",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.core.scanner_ui",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.core.tar_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.errors",
+   "to": "ggshield.core.url_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.filter",
+   "to": "ggshield.core.ui",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.git_hooks",
+   "to": "ggshield.cmd.auth",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.git_hooks",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.git_hooks",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.git_hooks",
+   "to": "ggshield.core.text_utils",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.git_hooks",
+   "to": "ggshield.verticals",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.git_hooks",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.git_hooks",
+   "to": "ggshield.verticals.secret",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.lines",
+   "to": "ggshield.core.ui",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.match_span",
+   "to": "ggshield.core.ui",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.scan",
+   "to": "ggshield.cmd.auth",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.scan",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.scan",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.scan",
+   "to": "ggshield.core.text_utils",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.scan",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.tar_utils",
+   "to": "ggshield.core.ui",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.text_utils",
+   "to": "ggshield.core.ui",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.types",
+   "to": "ggshield.core",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.types",
+   "to": "ggshield.core.check_updates",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.types",
+   "to": "ggshield.core.client",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.types",
+   "to": "ggshield.core.dirs",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.types",
+   "to": "ggshield.core.env_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.types",
+   "to": "ggshield.core.git_hooks",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.types",
+   "to": "ggshield.core.lines",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.types",
+   "to": "ggshield.core.match_span",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.types",
+   "to": "ggshield.core.scan",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.types",
+   "to": "ggshield.core.scanner_ui",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.types",
+   "to": "ggshield.core.tar_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.types",
+   "to": "ggshield.core.url_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.cmd.auth",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.ui",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.core.url_utils",
+   "to": "ggshield.core.text_utils",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.cmd.auth",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.cmd.config",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.check_updates",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.filter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.match_span",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.scanner_ui",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.text_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.utils",
+   "to": "ggshield.core.url_utils",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.cmd.auth",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.cmd.config",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.cmd.secret",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.cmd.utils",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.core.constants",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.core.dirs",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.core.errors",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.core.git_hooks",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.core.lines",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.core.tar_utils",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.core.text_utils",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals",
+   "to": "ggshield.verticals.secret",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.auth",
+   "to": "ggshield.core",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.auth",
+   "to": "ggshield.core.text_utils",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.hmsl",
+   "to": "ggshield.cmd",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.hmsl",
+   "to": "ggshield.cmd.config",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.hmsl",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.hmsl",
+   "to": "ggshield.cmd.secret",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.hmsl",
+   "to": "ggshield.cmd.utils",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.hmsl",
+   "to": "ggshield.core.git_hooks",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.hmsl",
+   "to": "ggshield.core.scan",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.hmsl",
+   "to": "ggshield.verticals",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.hmsl",
+   "to": "ggshield.verticals.secret",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.secret",
+   "to": "ggshield.cmd",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.secret",
+   "to": "ggshield.cmd.auth",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.secret",
+   "to": "ggshield.cmd.config",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.secret",
+   "to": "ggshield.cmd.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.secret",
+   "to": "ggshield.cmd.honeytoken",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.secret",
+   "to": "ggshield.cmd.utils",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.secret",
+   "to": "ggshield.core.git_hooks",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.secret",
+   "to": "ggshield.core.types",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.secret",
+   "to": "ggshield.verticals",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "ggshield.verticals.secret",
+   "to": "ggshield.verticals.hmsl",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  }
+ ]
+}

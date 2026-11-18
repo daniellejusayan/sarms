@@ -1,0 +1,65 @@
+- id: R-kedro-definitive-1
+  kind: forbidden
+  from: kedro.io
+  to: kedro.framework.context
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability+lexical; kedro.framework.context imports
+      kedro.io in 100% of 79 sampled commits; coexisted 2317 days; strict: never crossed,
+      no path today, stability margin 0.47, 7x3 modules, 5 shared neighbours'
+  compiled_at: 738830bbf026
+  severity: medium
+  evaluable: true
+- id: R-kedro-definitive-2
+  kind: forbidden
+  from: kedro.io
+  to: kedro.framework.session
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability+lexical; kedro.framework.session imports
+      kedro.io in 100% of 75 sampled commits; coexisted 2237 days; strict: never crossed,
+      no path today, stability margin 0.47, 7x6 modules, 6 shared neighbours'
+  compiled_at: 738830bbf026
+  severity: medium
+  evaluable: true
+- id: R-kedro-definitive-3
+  kind: forbidden
+  from: kedro.io
+  to: kedro.runner
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability+lexical; kedro.runner imports kedro.io
+      in 100% of 79 sampled commits; coexisted 2317 days; strict: never crossed, no
+      path today, stability margin 0.52, 7x6 modules, 4 shared neighbours'
+  compiled_at: 738830bbf026
+  severity: medium
+  evaluable: true
+- id: R-kedro-definitive-4
+  kind: forbidden
+  from: kedro.pipeline
+  to: kedro.framework.context
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability+lexical; kedro.framework.context imports
+      kedro.pipeline in 100% of 79 sampled commits; coexisted 2317 days; strict: never
+      crossed, no path today, stability margin 0.53, 6x3 modules, 5 shared neighbours'
+  compiled_at: 738830bbf026
+  severity: medium
+  evaluable: true
+- id: R-kedro-definitive-5
+  kind: forbidden
+  from: kedro.pipeline
+  to: kedro.runner
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; kedro.runner imports kedro.pipeline
+      in 100% of 79 sampled commits; coexisted 2317 days; strict: never crossed, no
+      path today, stability margin 0.58, 6x6 modules, 3 shared neighbours'
+  compiled_at: 738830bbf026
+  severity: medium
+  evaluable: true

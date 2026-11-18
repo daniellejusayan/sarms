@@ -1,0 +1,12 @@
+- id: R-kedro-certified-1
+  kind: forbidden
+  from: kedro.pipeline
+  to: kedro.framework.hooks
+  source:
+    type: recovered
+    id: learned:certified
+    sentence: A1-A6 over 79 sampled commits, 2317.0 days; min margin 0.125; 6x4 modules,
+      3 shared neighbours
+  compiled_at: 738830bbf026
+  severity: medium
+  evaluable: true

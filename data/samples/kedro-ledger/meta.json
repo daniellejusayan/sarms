@@ -1,0 +1,41 @@
+{
+ "repo": "/tmp/claude-0/-home-claude/5ce3289f-46a2-5698-9ac2-2d790bd46ee6/scratchpad/w1/p0/sarms/data/raw/kedro",
+ "roots": [
+  "kedro",
+  "kedro_benchmarks",
+  "tools"
+ ],
+ "components": [
+  "kedro.__main__",
+  "kedro.config",
+  "kedro.framework",
+  "kedro.framework.cli",
+  "kedro.framework.context",
+  "kedro.framework.hooks",
+  "kedro.framework.project",
+  "kedro.framework.session",
+  "kedro.framework.startup",
+  "kedro.inspection",
+  "kedro.io",
+  "kedro.ipython",
+  "kedro.logging",
+  "kedro.pipeline",
+  "kedro.runner",
+  "kedro.server",
+  "kedro.utils",
+  "kedro.validation",
+  "kedro_benchmarks._utils",
+  "kedro_benchmarks.benchmark_datacatalog",
+  "kedro_benchmarks.benchmark_ocl",
+  "kedro_benchmarks.benchmark_runner",
+  "kedro_benchmarks.benchmark_service_session",
+  "kedro_benchmarks.benchmark_session",
+  "kedro_benchmarks.benchmark_validation",
+  "tools.databricks_build"
+ ],
+ "every": 25,
+ "sampled": 80,
+ "unreadable": 1,
+ "last": "738830bbf026c116b3d5575940b73e55aac4acdd",
+ "seconds": 26.1
+}

@@ -1,0 +1,4225 @@
+{
+ "repo": "sqlfluff",
+ "at": "ad1231eab8ad9951e186f3a695e8e9abc586300d",
+ "judge": false,
+ "strict": true,
+ "policy": {
+  "status": "definitive",
+  "worst_case_of_a_wrong_rule": "one future import line re-routed per push, in a one-commit revertible change (G7); nothing existing is rewritten because every adopted pair is absent from the code at adoption",
+  "demotion": "a developer revert of a fix made under the rule sets its severity to low (pass --demote 'A -> B' on the next run)",
+  "re-evaluation": "re-run adopt after each replay window; ids are stable per pair"
+ },
+ "changes": {
+  "new": [],
+  "kept": [
+   "sqlfluff.dialects -> sqlfluff.rules.aliasing",
+   "sqlfluff.dialects -> sqlfluff.rules.references",
+   "sqlfluff.dialects -> sqlfluff.rules.structure",
+   "sqlfluff.utils.reflow -> sqlfluff.rules.convention",
+   "sqlfluff.utils.reflow -> sqlfluff.rules.layout",
+   "sqlfluff.utils.reflow -> sqlfluff.rules.structure"
+  ],
+  "no_longer_strict": [
+   "sqlfluff.core.dialects -> sqlfluff.rules.aliasing",
+   "sqlfluff.core.dialects -> sqlfluff.rules.references",
+   "sqlfluff.core.dialects -> sqlfluff.rules.structure",
+   "sqlfluff.core.parser -> sqlfluff.rules.aliasing",
+   "sqlfluff.core.parser -> sqlfluff.rules.ambiguous",
+   "sqlfluff.core.parser -> sqlfluff.rules.convention",
+   "sqlfluff.core.parser -> sqlfluff.rules.layout",
+   "sqlfluff.core.parser -> sqlfluff.rules.references",
+   "sqlfluff.core.parser -> sqlfluff.rules.structure",
+   "sqlfluff.core.rules -> sqlfluff.rules.aliasing",
+   "sqlfluff.core.rules -> sqlfluff.rules.ambiguous",
+   "sqlfluff.core.rules -> sqlfluff.rules.convention",
+   "sqlfluff.core.rules -> sqlfluff.rules.layout",
+   "sqlfluff.core.rules -> sqlfluff.rules.references",
+   "sqlfluff.core.rules -> sqlfluff.rules.structure",
+   "sqlfluff.core.rules -> sqlfluff.rules.tsql"
+  ],
+  "demotions": [],
+  "uncertified": [
+   {
+    "id": "R-sqlfluff-definitive-26",
+    "from": "sqlfluff.core.dialects",
+    "to": "sqlfluff.api",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.api"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-27",
+    "from": "sqlfluff.core.linter",
+    "to": "sqlfluff.api",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.api"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-6",
+    "from": "sqlfluff.core.dialects",
+    "to": "sqlfluff.rules.aliasing",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.rules"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-7",
+    "from": "sqlfluff.core.dialects",
+    "to": "sqlfluff.rules.references",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.rules"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-8",
+    "from": "sqlfluff.core.dialects",
+    "to": "sqlfluff.rules.structure",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.rules"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-9",
+    "from": "sqlfluff.core.parser",
+    "to": "sqlfluff.rules.aliasing",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.rules"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-10",
+    "from": "sqlfluff.core.parser",
+    "to": "sqlfluff.rules.ambiguous",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.rules"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-11",
+    "from": "sqlfluff.core.parser",
+    "to": "sqlfluff.rules.convention",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.rules"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-12",
+    "from": "sqlfluff.core.parser",
+    "to": "sqlfluff.rules.layout",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.rules"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-13",
+    "from": "sqlfluff.core.parser",
+    "to": "sqlfluff.rules.references",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.rules"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-14",
+    "from": "sqlfluff.core.parser",
+    "to": "sqlfluff.rules.structure",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.rules"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-15",
+    "from": "sqlfluff.core.rules",
+    "to": "sqlfluff.rules.aliasing",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.rules"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-16",
+    "from": "sqlfluff.core.rules",
+    "to": "sqlfluff.rules.ambiguous",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.rules"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-17",
+    "from": "sqlfluff.core.rules",
+    "to": "sqlfluff.rules.convention",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.rules"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-18",
+    "from": "sqlfluff.core.rules",
+    "to": "sqlfluff.rules.layout",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.rules"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-19",
+    "from": "sqlfluff.core.rules",
+    "to": "sqlfluff.rules.references",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.rules"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-20",
+    "from": "sqlfluff.core.rules",
+    "to": "sqlfluff.rules.structure",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.rules"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-21",
+    "from": "sqlfluff.core.rules",
+    "to": "sqlfluff.rules.tsql",
+    "failed": [
+     "already enforced by a written rule: sqlfluff.core -> sqlfluff.rules"
+    ]
+   },
+   {
+    "id": "R-sqlfluff-definitive-28",
+    "from": "sqlfluff.rules.aliasing",
+    "to": "sqlfluff.rules.references",
+    "failed": [
+     "A1_direction"
+    ]
+   }
+  ]
+ },
+ "decisions": [
+  {
+   "from": "sqlfluff.core.linter",
+   "to": "sqlfluff.cli",
+   "evidence": "asymmetry+repair+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "never_crossed_at_all"
+  },
+  {
+   "from": "sqlfluff.core",
+   "to": "sqlfluff.api",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "substantial"
+  },
+  {
+   "from": "sqlfluff.core",
+   "to": "sqlfluff.cli",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "substantial"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.core",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "clean_chain+substantial+selective"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.core.linter",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "clean_chain+selective"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.core.parser",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "sdp_margin+clean_chain+selective"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.core.parser",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.core.rules",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.core",
+   "evidence": "asymmetry+repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "clean_chain+never_crossed_at_all+substantial+consistent"
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.core.rules",
+   "evidence": "asymmetry+repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "sdp_margin+clean_chain+never_crossed_at_all"
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.dialects",
+   "evidence": "asymmetry+repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "sdp_margin+never_crossed_at_all"
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.core.linter",
+   "evidence": "asymmetry+repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "clean_chain+never_crossed_at_all"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.core.parser",
+   "evidence": "asymmetry+repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "sdp_margin+clean_chain+never_crossed_at_all+consistent"
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.api",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.linter",
+   "to": "sqlfluff.api",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.core.linter",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.cli",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "selective"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.core.rules",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+clean_chain+selective"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.core",
+   "evidence": "repair+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+clean_chain+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "sqlfluff.core",
+   "to": "sqlfluff.utils.testing",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "substantial+names_agree"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.utils.reflow",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "selective"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.utils.testing",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "selective"
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.core",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "clean_chain+substantial"
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.core.config",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "clean_chain+names_agree"
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.dialects",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "sdp_margin"
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.rules.references",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.core",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.core.linter",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.core.config",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.utils.reflow",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.core.linter",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "clean_chain"
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.rules.references",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.utils.reflow",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "names_agree"
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.rules.references",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.utils.reflow",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "names_agree"
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.utils.testing",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "names_agree"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.cli",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.rules.references",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.rules.aliasing",
+   "to": "sqlfluff.rules.references",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.rules.references",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.rules.references",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.rules.capitalisation",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.rules.references",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.core.linter",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "clean_chain"
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.core.rules",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "clean_chain"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.core.rules",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "sdp_margin+clean_chain"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.api",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.core.dialects",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.plugin",
+   "to": "sqlfluff.cli",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.core.formatter",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.core.formatter",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+substantial"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.utils.testing",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+clean_chain+substantial+consistent"
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.rules",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "sqlfluff.cli",
+   "to": "sqlfluff.dialects",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.api",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+selective"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.rules",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+substantial+selective"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+selective"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+selective"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+selective"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+selective"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.rules.references",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+selective"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+selective"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+selective"
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.api",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.core",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+substantial+three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.core.dialects",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+three_years+consistent+selective"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.rules",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+substantial+three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.rules.references",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+three_years+selective"
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.api",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.api",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.core",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+clean_chain+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.api",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+substantial"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.core",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+clean_chain+never_crossed_at_all+substantial+consistent"
+  },
+  {
+   "from": "sqlfluff.rules",
+   "to": "sqlfluff.api",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+substantial+consistent"
+  },
+  {
+   "from": "sqlfluff.rules",
+   "to": "sqlfluff.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+substantial+consistent"
+  },
+  {
+   "from": "sqlfluff.rules",
+   "to": "sqlfluff.core.dialects",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "sqlfluff.rules",
+   "to": "sqlfluff.core.parser",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "sqlfluff.rules",
+   "to": "sqlfluff.core.rules",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "sqlfluff.rules",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "sqlfluff.rules",
+   "to": "sqlfluff.dialects",
+   "evidence": "repair+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+never_crossed_at_all+substantial"
+  },
+  {
+   "from": "sqlfluff.rules.aliasing",
+   "to": "sqlfluff.api",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+substantial"
+  },
+  {
+   "from": "sqlfluff.rules.aliasing",
+   "to": "sqlfluff.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin"
+  },
+  {
+   "from": "sqlfluff.rules.ambiguous",
+   "to": "sqlfluff.api",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "sqlfluff.rules.ambiguous",
+   "to": "sqlfluff.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin"
+  },
+  {
+   "from": "sqlfluff.rules.convention",
+   "to": "sqlfluff.api",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "sqlfluff.rules.convention",
+   "to": "sqlfluff.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin"
+  },
+  {
+   "from": "sqlfluff.rules.layout",
+   "to": "sqlfluff.api",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "sqlfluff.rules.layout",
+   "to": "sqlfluff.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin"
+  },
+  {
+   "from": "sqlfluff.rules.references",
+   "to": "sqlfluff.api",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "sqlfluff.rules.references",
+   "to": "sqlfluff.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin"
+  },
+  {
+   "from": "sqlfluff.rules.structure",
+   "to": "sqlfluff.api",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "sqlfluff.rules.structure",
+   "to": "sqlfluff.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin"
+  },
+  {
+   "from": "sqlfluff.rules.tsql",
+   "to": "sqlfluff.api",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "sqlfluff.rules.tsql",
+   "to": "sqlfluff.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.core",
+   "evidence": "repair+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.api",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+substantial"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.core.dialects",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+clean_chain"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.core.linter",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+clean_chain"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+clean_chain"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.rules.references",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.api",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.core.dialects",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+clean_chain"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.core.linter",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+clean_chain"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.core.parser",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+clean_chain"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+clean_chain"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.rules",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.rules.references",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "sqlfluff.api",
+   "to": "sqlfluff.rules",
+   "evidence": "mutual-absence+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial+consistent+names_agree"
+  },
+  {
+   "from": "sqlfluff.cli",
+   "to": "sqlfluff.rules",
+   "evidence": "mutual-absence+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial+consistent+names_agree"
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.core.helpers",
+   "evidence": "mutual-absence+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+clean_chain+three_years+consistent+names_agree"
+  },
+  {
+   "from": "sqlfluff.cli",
+   "to": "sqlfluff.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.utils.analysis",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.utils.testing",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.formatter",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.core.types",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.rules.capitalisation",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.rules.jinja",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.utils.analysis",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.utils.functional",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.utils.identifers",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.plugin",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.plugin",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.plugin",
+   "to": "sqlfluff.rules.capitalisation",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.plugin",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.plugin",
+   "to": "sqlfluff.rules.jinja",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.plugin",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.plugin",
+   "to": "sqlfluff.rules.references",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.plugin",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.plugin",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.rules.capitalisation",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.rules.jinja",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.utils.functional",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.utils.functional",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.timing",
+   "to": "sqlfluff.core",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.timing",
+   "to": "sqlfluff.core.linter",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.core.config",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.utils.testing",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.utils.analysis",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.utils.reflow",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.core.plugin",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.core.config",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.rules.jinja",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.utils.analysis",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.rules",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.rules",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.rules",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.core.linter",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.rules",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core",
+   "to": "sqlfluff.core.rules",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.rules",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.rules.jinja",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.rules",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.rules",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.cli",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.api",
+   "to": "sqlfluff.cli",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.api",
+   "to": "sqlfluff.dialects",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.cli",
+   "to": "sqlfluff.api",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core",
+   "to": "sqlfluff.dialects",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core",
+   "to": "sqlfluff.rules",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core",
+   "to": "sqlfluff.rules.references",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.core.timing",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.dialects",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.rules.capitalisation",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.config",
+   "to": "sqlfluff.rules.jinja",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.api",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.cli",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.core.formatter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.core.plugin",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.core.timing",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.rules",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.rules.capitalisation",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.rules.jinja",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.rules.references",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.errors",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.formatter",
+   "to": "sqlfluff.api",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.formatter",
+   "to": "sqlfluff.cli",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.core.formatter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.core.plugin",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.core.timing",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.dialects",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.rules.capitalisation",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.helpers",
+   "to": "sqlfluff.rules.jinja",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.linter",
+   "to": "sqlfluff.dialects",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.linter",
+   "to": "sqlfluff.rules",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.linter",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.linter",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.linter",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.linter",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.linter",
+   "to": "sqlfluff.rules.references",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.linter",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.linter",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.plugin",
+   "to": "sqlfluff.api",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.dialects",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.core.dialects",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.dialects",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.rules.references",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.templaters",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.timing",
+   "to": "sqlfluff.api",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.timing",
+   "to": "sqlfluff.cli",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.core",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.core.dialects",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.core.linter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.core.parser",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.core.plugin",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.core.rules",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.core.timing",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.rules",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.rules.capitalisation",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.rules.jinja",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.rules.references",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.core.types",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.api",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.core",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.core.config",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.core.helpers",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.core.linter",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.core.rules",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.utils.reflow",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.utils.testing",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.diff_quality_plugin",
+   "to": "sqlfluff.cli",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.diff_quality_plugin",
+   "to": "sqlfluff.core",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules",
+   "to": "sqlfluff.core",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules",
+   "to": "sqlfluff.core.linter",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules",
+   "to": "sqlfluff.core.plugin",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules",
+   "to": "sqlfluff.rules.references",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.aliasing",
+   "to": "sqlfluff.core",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.aliasing",
+   "to": "sqlfluff.core.linter",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.aliasing",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.aliasing",
+   "to": "sqlfluff.rules",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.aliasing",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.aliasing",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.aliasing",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.aliasing",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.aliasing",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.ambiguous",
+   "to": "sqlfluff.core",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.ambiguous",
+   "to": "sqlfluff.core.dialects",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.ambiguous",
+   "to": "sqlfluff.core.linter",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.ambiguous",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.ambiguous",
+   "to": "sqlfluff.dialects",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.ambiguous",
+   "to": "sqlfluff.rules",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.ambiguous",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.ambiguous",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.ambiguous",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.ambiguous",
+   "to": "sqlfluff.rules.references",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.ambiguous",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.ambiguous",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.capitalisation",
+   "to": "sqlfluff.api",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.capitalisation",
+   "to": "sqlfluff.cli",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.convention",
+   "to": "sqlfluff.core",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.convention",
+   "to": "sqlfluff.core.dialects",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.convention",
+   "to": "sqlfluff.core.linter",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.convention",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.convention",
+   "to": "sqlfluff.rules",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.convention",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.convention",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.convention",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.convention",
+   "to": "sqlfluff.rules.references",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.convention",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.convention",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.jinja",
+   "to": "sqlfluff.api",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.jinja",
+   "to": "sqlfluff.cli",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.layout",
+   "to": "sqlfluff.core",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.layout",
+   "to": "sqlfluff.core.dialects",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.layout",
+   "to": "sqlfluff.core.linter",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.layout",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.layout",
+   "to": "sqlfluff.dialects",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.layout",
+   "to": "sqlfluff.rules",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.layout",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.layout",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.layout",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.layout",
+   "to": "sqlfluff.rules.references",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.layout",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.layout",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.references",
+   "to": "sqlfluff.core",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.references",
+   "to": "sqlfluff.core.linter",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.references",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.references",
+   "to": "sqlfluff.rules",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.references",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.references",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.references",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.references",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.references",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.structure",
+   "to": "sqlfluff.core",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.structure",
+   "to": "sqlfluff.core.linter",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.structure",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.structure",
+   "to": "sqlfluff.rules",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.structure",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.structure",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.structure",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.structure",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.structure",
+   "to": "sqlfluff.rules.references",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.structure",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.tsql",
+   "to": "sqlfluff.core",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.tsql",
+   "to": "sqlfluff.core.dialects",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.tsql",
+   "to": "sqlfluff.core.linter",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.tsql",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.tsql",
+   "to": "sqlfluff.rules",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.tsql",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.tsql",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.tsql",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.tsql",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.tsql",
+   "to": "sqlfluff.rules.references",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.rules.tsql",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.api",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.cli",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.core",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.core.dialects",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.core.formatter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.core.linter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.core.parser",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.core.plugin",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.core.rules",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.core.timing",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.rules",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.rules.capitalisation",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.rules.jinja",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.rules.references",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.api",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.cli",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.core.formatter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.core.linter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.core.plugin",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.core.rules",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.core.timing",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.rules.capitalisation",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.rules.jinja",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.analysis",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.api",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.cli",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.core",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.core.dialects",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.core.formatter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.core.linter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.core.plugin",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.core.timing",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.rules.capitalisation",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.functional",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.api",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.cli",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.core",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.core.dialects",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.core.formatter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.core.linter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.core.plugin",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.core.rules",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.core.templaters",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.core.timing",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.rules",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.rules.jinja",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.identifers",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.core.formatter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.core.plugin",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.core.timing",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.dialects",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.rules.capitalisation",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.rules.jinja",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.utils.testing",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.core.formatter",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.core.plugin",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.core.timing",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.dialects",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.rules.capitalisation",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.rules.jinja",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "sqlfluff.utils.testing",
+   "to": "sqlfluff.utils.reflow",
+   "evidence": "stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  }
+ ]
+}

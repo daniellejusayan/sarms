@@ -1,0 +1,14 @@
+a,b,co_commits,revisions_a,revisions_b,degree,class,rule_id,forbidden_direction,has_import,degree_early,degree_late,trend
+kedro.framework.context,kedro.io,4,13,51,0.31,forbidden,R-kedro-definitive-1,kedro.io -> kedro.framework.context,True,0.3,0.33,stable
+kedro.framework.cli,kedro.framework.session,5,50,19,0.26,forbidden,R-kedro-CLI-Context-Library-Runner-Extras-IO-Pipeline-1,kedro.framework.session -> kedro.framework.cli,True,0.0,0.38,rising
+kedro.framework.cli,kedro.framework.project,5,50,24,0.21,forbidden,R-kedro-CLI-Context-Library-Runner-Extras-IO-Pipeline-5,kedro.framework.project -> kedro.framework.cli,True,0.0,0.31,rising
+kedro.framework.cli,kedro.pipeline,5,50,31,0.16,forbidden,R-kedro-CLI-Context-Library-Runner-Extras-IO-Pipeline-11,kedro.pipeline -> kedro.framework.cli,False,0.19,0.13,stable
+kedro.io,kedro.runner,3,51,20,0.15,forbidden,R-kedro-definitive-3,kedro.io -> kedro.runner,True,0.13,0.2,stable
+kedro.framework.project,kedro.io,3,24,51,0.12,forbidden,R-kedro-CLI-Context-Library-Runner-Extras-IO-Pipeline-39,kedro.io -> kedro.framework.project,True,0.12,0.12,stable
+kedro.framework.cli,kedro.io,6,50,51,0.12,forbidden,R-kedro-CLI-Context-Library-Runner-Extras-IO-Pipeline-9,kedro.io -> kedro.framework.cli,False,0.15,0.12,stable
+kedro.inspection,kedro.server,5,11,14,0.45,import,,,True,0.0,0.45,rising
+kedro.io,kedro.utils,4,51,13,0.31,import,,,True,0.43,0.17,falling
+kedro.framework.project,kedro.server,4,24,14,0.29,import,,,True,0.0,0.29,rising
+kedro.framework.cli,kedro.server,4,50,14,0.29,import,,,True,0.0,0.29,rising
+kedro.framework.cli,kedro.ipython,4,50,15,0.27,import,,,True,0.0,0.5,rising
+kedro.framework.cli,kedro.utils,3,50,13,0.23,import,,,True,0.14,0.33,rising

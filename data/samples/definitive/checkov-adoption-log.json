@@ -1,0 +1,555 @@
+{
+ "repo": "checkov",
+ "at": "811d0687902c66d5964c68da5739c947979e85b1",
+ "judge": false,
+ "strict": true,
+ "policy": {
+  "status": "definitive",
+  "worst_case_of_a_wrong_rule": "one future import line re-routed per push, in a one-commit revertible change (G7); nothing existing is rewritten because every adopted pair is absent from the code at adoption",
+  "demotion": "a developer revert of a fix made under the rule sets its severity to low (pass --demote 'A -> B' on the next run)",
+  "re-evaluation": "re-run adopt after each replay window; ids are stable per pair"
+ },
+ "changes": {
+  "new": [
+   "checkov.common.models -> checkov.ansible",
+   "checkov.common.models -> checkov.argo_workflows",
+   "checkov.common.models -> checkov.arm.checks",
+   "checkov.common.models -> checkov.azure_pipelines",
+   "checkov.common.models -> checkov.bicep.checks",
+   "checkov.common.models -> checkov.circleci_pipelines",
+   "checkov.common.models -> checkov.cloudformation.checks",
+   "checkov.common.models -> checkov.common.bridgecrew",
+   "checkov.common.models -> checkov.common.checks",
+   "checkov.common.models -> checkov.common.graph",
+   "checkov.common.models -> checkov.common.output",
+   "checkov.common.models -> checkov.common.sca",
+   "checkov.common.models -> checkov.github",
+   "checkov.common.models -> checkov.github_actions.checks",
+   "checkov.common.models -> checkov.gitlab",
+   "checkov.common.models -> checkov.gitlab_ci",
+   "checkov.common.models -> checkov.json_doc",
+   "checkov.common.models -> checkov.kubernetes.checks",
+   "checkov.common.models -> checkov.openapi",
+   "checkov.common.models -> checkov.policies_3d",
+   "checkov.common.models -> checkov.sca_package_2",
+   "checkov.common.models -> checkov.secrets",
+   "checkov.common.models -> checkov.serverless.checks",
+   "checkov.common.models -> checkov.terraform.checks",
+   "checkov.common.models -> checkov.terraform.context_parsers",
+   "checkov.common.util -> checkov.arm.checks"
+  ],
+  "kept": [],
+  "no_longer_strict": [],
+  "demotions": []
+ },
+ "decisions": [
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.arm.checks",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.cloudformation.checks",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.common.bridgecrew",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.common.checks",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.common.output",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.github",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.github_actions.checks",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.gitlab",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.gitlab_ci",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.kubernetes.checks",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.openapi",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.serverless.checks",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.terraform.checks",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.terraform.context_parsers",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.util",
+   "to": "checkov.arm.checks",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.json_doc",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.policies_3d",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.sca_package_2",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.secrets",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.argo_workflows",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.azure_pipelines",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.circleci_pipelines",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.ansible",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.common.graph",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.bicep.checks",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "checkov.common.models",
+   "to": "checkov.common.sca",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  }
+ ],
+ "not_adopted": {
+  "count": 5929,
+  "failed_gate_counts": {
+   "not adopted loosely": 5647,
+   "clean_chain": 223,
+   "direction_80": 110,
+   "substantial": 76,
+   "never_crossed_at_all": 74,
+   "consistent": 65,
+   "sdp_margin": 61,
+   "three_years": 32,
+   "names_agree": 7
+  }
+ }
+}

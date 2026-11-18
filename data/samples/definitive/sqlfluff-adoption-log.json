@@ -1,0 +1,536 @@
+{
+ "repo": "sqlfluff",
+ "at": "ad1231eab8ad9951e186f3a695e8e9abc586300d",
+ "judge": false,
+ "strict": true,
+ "policy": {
+  "status": "definitive",
+  "worst_case_of_a_wrong_rule": "one future import line re-routed per push, in a one-commit revertible change (G7); nothing existing is rewritten because every adopted pair is absent from the code at adoption",
+  "demotion": "a developer revert of a fix made under the rule sets its severity to low (pass --demote 'A -> B' on the next run)",
+  "re-evaluation": "re-run adopt after each replay window; ids are stable per pair"
+ },
+ "changes": {
+  "new": [
+   "sqlfluff.core.dialects -> sqlfluff.api",
+   "sqlfluff.core.dialects -> sqlfluff.rules.aliasing",
+   "sqlfluff.core.dialects -> sqlfluff.rules.references",
+   "sqlfluff.core.dialects -> sqlfluff.rules.structure",
+   "sqlfluff.core.linter -> sqlfluff.api",
+   "sqlfluff.core.parser -> sqlfluff.rules.aliasing",
+   "sqlfluff.core.parser -> sqlfluff.rules.ambiguous",
+   "sqlfluff.core.parser -> sqlfluff.rules.convention",
+   "sqlfluff.core.parser -> sqlfluff.rules.layout",
+   "sqlfluff.core.parser -> sqlfluff.rules.references",
+   "sqlfluff.core.parser -> sqlfluff.rules.structure",
+   "sqlfluff.core.rules -> sqlfluff.rules.aliasing",
+   "sqlfluff.core.rules -> sqlfluff.rules.ambiguous",
+   "sqlfluff.core.rules -> sqlfluff.rules.convention",
+   "sqlfluff.core.rules -> sqlfluff.rules.layout",
+   "sqlfluff.core.rules -> sqlfluff.rules.references",
+   "sqlfluff.core.rules -> sqlfluff.rules.structure",
+   "sqlfluff.core.rules -> sqlfluff.rules.tsql",
+   "sqlfluff.dialects -> sqlfluff.rules.aliasing",
+   "sqlfluff.dialects -> sqlfluff.rules.references",
+   "sqlfluff.dialects -> sqlfluff.rules.structure",
+   "sqlfluff.rules.aliasing -> sqlfluff.rules.references",
+   "sqlfluff.utils.reflow -> sqlfluff.rules.convention",
+   "sqlfluff.utils.reflow -> sqlfluff.rules.layout",
+   "sqlfluff.utils.reflow -> sqlfluff.rules.structure"
+  ],
+  "kept": [],
+  "no_longer_strict": [],
+  "demotions": []
+ },
+ "decisions": [
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.utils.reflow",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.api",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.linter",
+   "to": "sqlfluff.api",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.rules.references",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.dialects",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.rules.references",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.parser",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.rules.ambiguous",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.rules.convention",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.rules.layout",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.rules.references",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.core.rules",
+   "to": "sqlfluff.rules.tsql",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.rules.references",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.rules.structure",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.rules.aliasing",
+   "to": "sqlfluff.rules.references",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "sqlfluff.dialects",
+   "to": "sqlfluff.rules.aliasing",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  }
+ ],
+ "not_adopted": {
+  "count": 444,
+  "failed_gate_counts": {
+   "not adopted loosely": 329,
+   "direction_80": 84,
+   "sdp_margin": 48,
+   "substantial": 41,
+   "selective": 35,
+   "clean_chain": 26,
+   "three_years": 20,
+   "never_crossed_at_all": 15,
+   "consistent": 10,
+   "names_agree": 8
+  }
+ }
+}

@@ -1,0 +1,165 @@
+# Commands for Steps 1 and 2 (from the repository root)
+
+```bash
+# Step 1a — screen candidates (criteria: docs/repo-selection.md)
+uv run python tools/reduce_longlist.py data/Step1_usable_repos_230.csv   # the team's sheet -> data/longlist.txt + longlist_decisions.csv
+uv run python tools/rawscan.py data/longlist.txt          # fast: contracts at the root, no clone
+uv run python tools/adrscan.py data/longlist.txt          # fast: common ADR folders
+uv run python tools/screen.py data/longlist.txt           # full screening -> data/candidates.csv
+tools/check_tests.sh OWNER/REPO '<install cmd>' '<test cmd>'   # criterion tests -> data/tests.csv
+
+# Steps 1b + 1c in one go (any OS; skips stages whose output exists; timings in data/REPO/timings.csv)
+uv run python tools/run_step1.py OWNER/REPO --every 1                              # every commit
+uv run python tools/run_step1.py OWNER/REPO --every 1 --since 2023-06-01           # large history: window
+uv run python tools/run_step1.py OWNER/REPO --config apps/backend/pyproject.toml --src apps/backend   # monorepo
+uv run python tools/run_step1.py OWNER/REPO --skip-proxy                            # ADR track: 1b + record only
+uv run python -m sarms.mining.adr_history data/raw/REPO "$BRANCH" data/REPO OWNER/REPO   # ADR track: dates, titles, structural flag
+uv run python -m sarms.graph.extract data/raw/REPO [--sha SHA]                      # the import graph of one commit -> data/REPO/graph/<sha>/
+uv run python tools/render_graph.py data/REPO/graph/<sha12> reports/figures/NAME   # draw it (Graphviz)
+uv run python tools/draw_sample.py OWNER/REPO [OWNER/REPO ...]                      # the seeded labelling samples (commit them)
+
+# Step 1b — mine the first-parent history (REPO = name without owner, clone in data/raw/REPO)
+BRANCH=$(git -C data/raw/REPO symbolic-ref --short refs/remotes/origin/HEAD | cut -d/ -f2)
+uv run python -m sarms.mining.first_parent data/raw/REPO "$BRANCH" data/REPO/commits.parquet
+
+# Step 1c — freeze the record, replay it, write the baseline
+uv run python -m sarms.rules.record_history data/raw/REPO "$BRANCH" data/REPO/record [--since YYYY-MM-DD]
+uv run python -m sarms.replay.proxy_lint data/raw/REPO "$BRANCH" data/REPO                    # sampled
+uv run python -m sarms.replay.proxy_lint data/raw/REPO "$BRANCH" data/REPO --every 1 --match=  # every commit
+uv run python -m sarms.replay.baseline data/REPO OWNER/REPO                                     # -> reports/awareness-gap-baseline.md
+
+# Step 2 — validate the specification before tagging
+uv run python tools/validate_spec.py      # prints the protocol hash for the P1 pack
+```
+
+Measured on kedro (1,957 first-parent commits): first_parent 1 s · record_history 60 s ·
+proxy_lint 2 min sampled, 5 min every commit · baseline 2 s. The screening script needs a
+clone per repository (partial, blob-less); `screen.py` makes it under `data/raw/`.
+
+## Weeks 2–3 — the loop on one repository (build-plan.md steps 1–4)
+
+```bash
+# 1. rule compiler: the team's contracts -> the rule bundle (schema-checked)
+uv run sarms compile data/raw/kedro --out data/kedro/rms/rules --repo kedro
+
+# 2. the Differ on one commit (plain-language summary + .rms/differ/<sha>/differ.{json,sarif})
+uv run sarms check data/raw/kedro --rules data/kedro/rms/rules --out data/kedro/rms
+uv run sarms check data/raw/kedro --sha 9039f82a --rules data/kedro/rms/rules --out data/kedro/rms
+
+# 2b. the Differ over the whole history (kedro: 3 min; equal trees are not re-checked)
+uv run sarms replay data/raw/kedro main data/kedro/rms --rules data/kedro/rms/rules
+
+# 3. the ledger (DuckDB, docs/spec/ledger.sql) from the Differ output, or from the Step 1c replay
+uv run sarms ledger data/kedro/rms --repo kedro-org/kedro --record data/kedro/record/contracts.csv
+uv run sarms ledger data/kedro/rms --repo kedro-org/kedro --from-replay data/kedro
+
+# the "done when" of steps 1–3 in one command: reproduce the replay's 16 edges / 28 episodes / 92 commits / 156 days
+uv run python tools/check_against_replay.py kedro-org/kedro          # ALL PASS
+
+# 4. one drafted fix, tried in a copy (<repo>.draft), never committed; outputs in data/kedro/rms/drafts/
+ollama serve & ollama pull qwen2.5-coder:7b                           # once; or set SARMS_LLM_BASE_URL/MODEL/API_KEY
+uv run sarms draft data/raw/kedro --rules data/kedro/rms/rules --rms data/kedro/rms --pick direct
+uv run sarms draft data/raw/kedro --rules data/kedro/rms/rules --rms data/kedro/rms \
+    --edge "kedro.runner -> kedro.framework.project" --tests "python -m pytest tests/runner -q -x --no-cov -p no:cacheprovider"
+uv run sarms draft data/raw/kedro --rules data/kedro/rms/rules --rms data/kedro/rms --template   # rule-based draft, no model
+```
+
+The draft step's `--tests` command runs inside the copy, so the copy needs the subject's test
+dependencies installed in the current environment (for kedro: `uv pip install -e data/raw/kedro.draft[test]`
+once; it is heavy). Without `--tests` the draft is judged on G1 only (violation gone, none new).
+
+## Fault injection (docs/spec/fault-injection.md, setup + measurement halves)
+
+```bash
+# plant 8 pushes (2 unused, 2 helper, 2 constant, 2 clean controls), one branch each from the current head
+uv run python tools/fault_injection.py data/raw/kedro --rules data/kedro/rms/rules --out data/kedro/rms/fi --per-kind 2
+
+# detect every plant and draft a fix with each model; one table -> data/kedro/rms/fi/results-<run>.md
+uv run python tools/eval_drafts.py data/kedro/rms/fi/plants.json --models template oracle            # no model needed
+uv run python tools/eval_drafts.py data/kedro/rms/fi/plants.json --models ollama:qwen2.5-coder:latest gemini:gemini-2.5-flash
+# add the planted tests (G3): needs the subject's test deps in the interpreter named here
+uv run python tools/eval_drafts.py data/kedro/rms/fi/plants.json --models ollama:qwen2.5-coder:latest \
+    --tests ".kedro-venv\Scripts\python -m pytest tests/sarms_fi -q -p no:cacheprovider -o addopts=''"
+```
+
+`oracle` is the ideal reply built from the plant record (unused and helper kinds): it proves the
+harness accepts a correct fix; it is not a model. Sandbox result on kedro, 28 Oct: detection 8/8,
+oracle 4/4, template 2/6 (the two unused imports; the rest correctly escalated), controls silent.
+Clean up with `git -C data/raw/kedro worktree remove --force data/raw/kedro.fi` and
+`git -C data/raw/kedro branch -D $(git -C data/raw/kedro branch --list 'sarms/fi-*')`.
+
+## Learned (soft) rules and the hidden-contract benchmark
+
+```bash
+# learn candidate rules from the import history alone (never reads the import-linter record)
+uv run sarms learn data/raw/kedro --out data/kedro/rms/learn --every 25
+# adopt: stability + one more evidence kind, names may veto; optional model judge; -> .rms/rules-soft
+uv run sarms adopt data/raw/kedro --learn data/kedro/rms/learn --out data/kedro/rms/rules-soft [--judge --model qwen2.5-coder:latest]
+# the Differ checks soft rules itself (direct imports only); harm-free adoption = 0 broken at HEAD
+uv run sarms check data/raw/kedro --rules data/kedro/rms/rules-soft --out data/kedro/rms/soft-run
+# the fault-injection table under the soft rules, to compare with the hard ones
+uv run python tools/eval_drafts.py data/kedro/rms/fi/plants.json --models template oracle --rules data/kedro/rms/rules-soft --rms data/kedro/rms/soft-run
+
+# DEFINITIVE rules: only candidates passing all nine strict gates (sarms.rules.viability), severity medium
+uv run sarms adopt data/raw/kedro --learn data/kedro/rms/learn --out data/kedro/rms/rules-definitive --strict
+uv run sarms adopt data/raw/kedro --learn data/kedro/rms/learn --out data/kedro/rms/rules-definitive --strict --demote="kedro.io -> kedro.runner"   # after a developer revert
+uv run sarms check data/raw/kedro --rules data/kedro/rms/rules-definitive --out data/kedro/rms/definitive-run    # 0 broken at HEAD, by construction
+uv run python tools/fault_injection.py data/raw/kedro --rules data/kedro/rms/rules-definitive --out data/kedro/rms/fi-definitive --run-id def
+uv run python tools/eval_drafts.py data/kedro/rms/fi-definitive/plants.json --models template oracle --rules data/kedro/rms/rules-definitive --run-id def
+# viability of every learned rule on its own merits (loose tiers + strict gates), all repositories
+uv run python tools/rule_viability.py --all --review 40        # -> reports/rule-viability.md, data/samples/viable_rules_unwritten.csv
+
+# benchmark: hide the team's contracts, learn, grade (full history, and only history before the first contract)
+uv run python tools/eval_learned_rules.py kedro-org/kedro
+uv run python tools/eval_learned_rules.py kedro-org/kedro --pre-contract        # -> reports/learned-rules.md
+```
+
+## Behavioural signals (CodeScene-style hotspots and change coupling, 29 Oct)
+
+```bash
+# hotspots (revisions x lines), change coupling between components, erosion pressure = coupling across a rule
+uv run python tools/hotspots.py data/raw/kedro --learn data/kedro/rms/learn --rules data/kedro/rms/rules data/kedro/rms/rules-definitive --replay data/kedro/rms/differ --months 24 --out data/kedro/rms/hotspots
+# -> components.csv (erosion_heat per component), coupling.csv (pairs with class import/hidden/forbidden and trend), heatmap.json
+```
+Bulk commits (more than 5 components) count as revisions but not as coupling; without that filter kedro's three 1.0
+migration commits make every pair look coupled.
+
+```bash
+# do behaviour (co-change, authorship, churn) make better adoption criteria? training vs held-out repositories
+uv run python tools/behavioural_evidence.py --all        # -> reports/behavioural-evidence.md (answer so far: no, they stay warnings)
+```
+
+## Proof-carrying rules: the six-axiom specification (4 Nov)
+
+```bash
+# adopt only rules that satisfy A1-A6 (direction in every commit, never crossed, never reachable, substantial,
+# consistent set, absent now) and write a certificate per rule
+uv run sarms adopt data\raw\kedro --learn data\kedro\rms\learn --out data\kedro\rms\rules-certified --certified
+# independent re-check of the certificates (separate code path; exit 1 on any failure)
+uv run sarms verify-rules --learn data\kedro\rms\learn --rules data\kedro\rms\rules-certified
+# certificates for an existing rule folder, e.g. the definitive set
+uv run sarms certify --learn data\kedro\rms\learn --rules data\kedro\rms\rules-definitive
+# the axioms over every benchmark repository, written rules opened only afterwards -> reports/axiom-study.md
+uv run python tools\axiom_study.py
+# simulation-style test: 40 seeded random histories, generator -> certified rules -> verify (tests/test_certify.py)
+uv run pytest -q tests\test_certify.py
+```
+
+## Track C: change-stream rules, hypergraph memory, belief functions (5 Nov; docs/track-c.md)
+
+```bash
+uv sync --group hgnn                                       # torch (CPU is enough) for the encoder
+uv run python tools/track_c.py kedro sqlfluff ggshield     # 70/30 production replay -> data/<repo>/rms/track-c/, reports/track-c.md
+uv run pytest -q tests/test_track_c.py
+```
+
+## The product (7 Nov; docs/product.md)
+
+```bash
+uv run sarms mine data/raw/kedro --out data/kedro/rms --every 25        # mining -> ledger
+uv run sarms certify-ledger data/raw/kedro --out data/kedro/rms         # certificates -> verified rules (+ independent check)
+uv run sarms run data/raw/kedro --out data/kedro/rms --tests "python -m pytest -q" --dry-run   # the loop on HEAD
+uv run sarms status --out data/kedro/rms
+uv run sarms dst --seeds 10 --level 1                                   # every scenario, risk labels -> reports/dst-risk.md
+uv run sarms dst --seeds 3 --level 2 --scenario crossing_then_repair    # real git repos, whole loop
+```

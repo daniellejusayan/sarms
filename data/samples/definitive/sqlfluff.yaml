@@ -1,0 +1,328 @@
+- id: R-sqlfluff-definitive-1
+  kind: forbidden
+  from: sqlfluff.utils.reflow
+  to: sqlfluff.rules.convention
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability+lexical; sqlfluff.rules.convention imports
+      sqlfluff.utils.reflow in 100% of 90 sampled commits; coexisted 1326 days; strict:
+      never crossed, no path today, stability margin 0.38, 9x14 modules, 2 shared
+      neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-2
+  kind: forbidden
+  from: sqlfluff.utils.reflow
+  to: sqlfluff.rules.layout
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability+lexical; sqlfluff.rules.layout imports
+      sqlfluff.utils.reflow in 100% of 89 sampled commits; coexisted 1317 days; strict:
+      never crossed, no path today, stability margin 0.38, 9x16 modules, 3 shared
+      neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-3
+  kind: forbidden
+  from: sqlfluff.utils.reflow
+  to: sqlfluff.rules.structure
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability+lexical; sqlfluff.rules.structure imports
+      sqlfluff.utils.reflow in 100% of 90 sampled commits; coexisted 1326 days; strict:
+      never crossed, no path today, stability margin 0.38, 9x13 modules, 2 shared
+      neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-4
+  kind: forbidden
+  from: sqlfluff.core.dialects
+  to: sqlfluff.api
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability+lexical; sqlfluff.api imports sqlfluff.core.dialects
+      in 97% of 168 sampled commits; coexisted 2164 days; strict: never crossed, no
+      path today, stability margin 0.85, 3x3 modules, 2 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-5
+  kind: forbidden
+  from: sqlfluff.core.linter
+  to: sqlfluff.api
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability+lexical; sqlfluff.api imports sqlfluff.core.linter
+      in 97% of 168 sampled commits; coexisted 2164 days; strict: never crossed, no
+      path today, stability margin 0.27, 10x3 modules, 2 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-6
+  kind: forbidden
+  from: sqlfluff.core.dialects
+  to: sqlfluff.rules.aliasing
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.aliasing imports sqlfluff.core.dialects
+      in 100% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.73, 3x11 modules, 5 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-7
+  kind: forbidden
+  from: sqlfluff.core.dialects
+  to: sqlfluff.rules.references
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.references imports sqlfluff.core.dialects
+      in 100% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.85, 3x8 modules, 5 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-8
+  kind: forbidden
+  from: sqlfluff.core.dialects
+  to: sqlfluff.rules.structure
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.structure imports sqlfluff.core.dialects
+      in 100% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.85, 3x13 modules, 4 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-9
+  kind: forbidden
+  from: sqlfluff.core.parser
+  to: sqlfluff.rules.aliasing
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.aliasing imports sqlfluff.core.parser
+      in 100% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.67, 29x11 modules, 6 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-10
+  kind: forbidden
+  from: sqlfluff.core.parser
+  to: sqlfluff.rules.ambiguous
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.ambiguous imports sqlfluff.core.parser
+      in 100% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.79, 29x10 modules, 3 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-11
+  kind: forbidden
+  from: sqlfluff.core.parser
+  to: sqlfluff.rules.convention
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.convention imports sqlfluff.core.parser
+      in 100% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.79, 29x14 modules, 4 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-12
+  kind: forbidden
+  from: sqlfluff.core.parser
+  to: sqlfluff.rules.layout
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.layout imports sqlfluff.core.parser
+      in 100% of 89 sampled commits; coexisted 1317 days; strict: never crossed, no
+      path today, stability margin 0.79, 29x16 modules, 4 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-13
+  kind: forbidden
+  from: sqlfluff.core.parser
+  to: sqlfluff.rules.references
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.references imports sqlfluff.core.parser
+      in 100% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.79, 29x8 modules, 7 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-14
+  kind: forbidden
+  from: sqlfluff.core.parser
+  to: sqlfluff.rules.structure
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.structure imports sqlfluff.core.parser
+      in 100% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.79, 29x13 modules, 6 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-15
+  kind: forbidden
+  from: sqlfluff.core.rules
+  to: sqlfluff.rules.aliasing
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.aliasing imports sqlfluff.core.rules
+      in 100% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.60, 10x11 modules, 5 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-16
+  kind: forbidden
+  from: sqlfluff.core.rules
+  to: sqlfluff.rules.ambiguous
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.ambiguous imports sqlfluff.core.rules
+      in 100% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.72, 10x10 modules, 3 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-17
+  kind: forbidden
+  from: sqlfluff.core.rules
+  to: sqlfluff.rules.convention
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.convention imports sqlfluff.core.rules
+      in 100% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.72, 10x14 modules, 4 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-18
+  kind: forbidden
+  from: sqlfluff.core.rules
+  to: sqlfluff.rules.layout
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.layout imports sqlfluff.core.rules
+      in 100% of 89 sampled commits; coexisted 1317 days; strict: never crossed, no
+      path today, stability margin 0.72, 10x16 modules, 5 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-19
+  kind: forbidden
+  from: sqlfluff.core.rules
+  to: sqlfluff.rules.references
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.references imports sqlfluff.core.rules
+      in 100% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.72, 10x8 modules, 5 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-20
+  kind: forbidden
+  from: sqlfluff.core.rules
+  to: sqlfluff.rules.structure
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.structure imports sqlfluff.core.rules
+      in 100% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.72, 10x13 modules, 5 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-21
+  kind: forbidden
+  from: sqlfluff.core.rules
+  to: sqlfluff.rules.tsql
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.tsql imports sqlfluff.core.rules
+      in 100% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.72, 10x5 modules, 2 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-22
+  kind: forbidden
+  from: sqlfluff.dialects
+  to: sqlfluff.rules.references
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.references imports sqlfluff.dialects
+      in 100% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.75, 54x8 modules, 4 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-23
+  kind: forbidden
+  from: sqlfluff.dialects
+  to: sqlfluff.rules.structure
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.structure imports sqlfluff.dialects
+      in 100% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.75, 54x13 modules, 3 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-24
+  kind: forbidden
+  from: sqlfluff.rules.aliasing
+  to: sqlfluff.rules.references
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.references imports sqlfluff.rules.aliasing
+      in 100% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.12, 11x8 modules, 7 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true
+- id: R-sqlfluff-definitive-25
+  kind: forbidden
+  from: sqlfluff.dialects
+  to: sqlfluff.rules.aliasing
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; sqlfluff.rules.aliasing imports sqlfluff.dialects
+      in 87% of 90 sampled commits; coexisted 1326 days; strict: never crossed, no
+      path today, stability margin 0.63, 54x11 modules, 4 shared neighbours'
+  compiled_at: ad1231eab8ad
+  severity: medium
+  evaluable: true

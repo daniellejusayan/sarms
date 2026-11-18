@@ -1,0 +1,739 @@
+{
+ "repo": "kedro",
+ "at": "738830bbf026c116b3d5575940b73e55aac4acdd",
+ "judge": false,
+ "strict": true,
+ "policy": {
+  "status": "definitive",
+  "worst_case_of_a_wrong_rule": "one future import line re-routed per push, in a one-commit revertible change (G7); nothing existing is rewritten because every adopted pair is absent from the code at adoption",
+  "demotion": "a developer revert of a fix made under the rule sets its severity to low (pass --demote 'A -> B' on the next run)",
+  "re-evaluation": "re-run adopt after each replay window; ids are stable per pair"
+ },
+ "changes": {
+  "new": [],
+  "kept": [],
+  "no_longer_strict": [
+   "kedro.io -> kedro.framework.context",
+   "kedro.io -> kedro.framework.session",
+   "kedro.io -> kedro.runner",
+   "kedro.pipeline -> kedro.framework.context",
+   "kedro.pipeline -> kedro.runner"
+  ],
+  "demotions": [],
+  "uncertified": [
+   {
+    "id": "R-kedro-definitive-1",
+    "from": "kedro.io",
+    "to": "kedro.framework.context",
+    "failed": [
+     "already enforced by a written rule: kedro.io -> kedro.framework.context"
+    ]
+   },
+   {
+    "id": "R-kedro-definitive-2",
+    "from": "kedro.io",
+    "to": "kedro.framework.session",
+    "failed": [
+     "already enforced by a written rule: kedro.io -> kedro.framework.session"
+    ]
+   },
+   {
+    "id": "R-kedro-definitive-3",
+    "from": "kedro.io",
+    "to": "kedro.runner",
+    "failed": [
+     "already enforced by a written rule: kedro.io -> kedro.runner"
+    ]
+   },
+   {
+    "id": "R-kedro-definitive-4",
+    "from": "kedro.pipeline",
+    "to": "kedro.framework.context",
+    "failed": [
+     "already enforced by a written rule: kedro.pipeline -> kedro.framework.context"
+    ]
+   },
+   {
+    "id": "R-kedro-definitive-5",
+    "from": "kedro.pipeline",
+    "to": "kedro.runner",
+    "failed": [
+     "already enforced by a written rule: kedro.pipeline -> kedro.runner"
+    ]
+   }
+  ]
+ },
+ "decisions": [
+  {
+   "from": "kedro.runner",
+   "to": "kedro.framework.session",
+   "evidence": "asymmetry+repair+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "sdp_margin+never_crossed_at_all"
+  },
+  {
+   "from": "kedro.config",
+   "to": "kedro.framework.context",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "substantial"
+  },
+  {
+   "from": "kedro.framework.project",
+   "to": "kedro.framework.cli",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "substantial"
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro.framework.context",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro.framework.session",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro.runner",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "kedro.pipeline",
+   "to": "kedro.framework.context",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "kedro.pipeline",
+   "to": "kedro.framework.project",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "substantial"
+  },
+  {
+   "from": "kedro.framework.session",
+   "to": "kedro.framework.cli",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "sdp_margin"
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro.framework.cli",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "kedro.config",
+   "to": "kedro.framework.session",
+   "evidence": "asymmetry+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "kedro.runner",
+   "to": "kedro.framework.context",
+   "evidence": "repair+stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+clean_chain+never_crossed_at_all"
+  },
+  {
+   "from": "kedro.framework.context",
+   "to": "kedro.framework.session",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "sdp_margin"
+  },
+  {
+   "from": "kedro.framework.project",
+   "to": "kedro.framework.context",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "substantial"
+  },
+  {
+   "from": "kedro.framework.project",
+   "to": "kedro.framework.session",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "substantial"
+  },
+  {
+   "from": "kedro.framework.startup",
+   "to": "kedro.framework.cli",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro.framework.hooks",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.pipeline",
+   "to": "kedro.framework.hooks",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.pipeline",
+   "to": "kedro.runner",
+   "evidence": "asymmetry+stability",
+   "adopt": true,
+   "strict": true,
+   "failed_gates": "",
+   "gates": {
+    "direction_80": true,
+    "sdp_margin": true,
+    "clean_chain": true,
+    "never_crossed_at_all": true,
+    "substantial": true,
+    "three_years": true,
+    "consistent": true,
+    "names_agree": true,
+    "selective": true
+   }
+  },
+  {
+   "from": "kedro.utils",
+   "to": "kedro.io",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.framework.project",
+   "to": "kedro.runner",
+   "evidence": "asymmetry+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "substantial+names_agree"
+  },
+  {
+   "from": "kedro.utils",
+   "to": "kedro.framework.cli",
+   "evidence": "asymmetry+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.framework.context",
+   "to": "kedro.framework.hooks",
+   "evidence": "asymmetry+repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.config",
+   "to": "kedro.framework.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro.framework.project",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "kedro.framework.context",
+   "to": "kedro.framework.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin"
+  },
+  {
+   "from": "kedro.pipeline",
+   "to": "kedro.framework.session",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "kedro.config",
+   "to": "kedro.framework.project",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+substantial"
+  },
+  {
+   "from": "kedro.config",
+   "to": "kedro.io",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+consistent"
+  },
+  {
+   "from": "kedro.config",
+   "to": "kedro.pipeline",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+consistent"
+  },
+  {
+   "from": "kedro.config",
+   "to": "kedro.runner",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+substantial+consistent"
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro.pipeline",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+clean_chain+consistent"
+  },
+  {
+   "from": "kedro.pipeline",
+   "to": "kedro.framework.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80"
+  },
+  {
+   "from": "kedro.runner",
+   "to": "kedro.framework.cli",
+   "evidence": "stability+lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin"
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro.config",
+   "evidence": "mutual-absence+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+consistent+names_agree"
+  },
+  {
+   "from": "kedro.pipeline",
+   "to": "kedro.config",
+   "evidence": "mutual-absence+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+consistent+names_agree"
+  },
+  {
+   "from": "kedro.runner",
+   "to": "kedro.config",
+   "evidence": "mutual-absence+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+clean_chain+substantial+consistent+names_agree"
+  },
+  {
+   "from": "kedro.pipeline",
+   "to": "kedro.io",
+   "evidence": "mutual-absence+stability",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "direction_80+sdp_margin+consistent+names_agree"
+  },
+  {
+   "from": "kedro.config",
+   "to": "kedro_benchmarks.benchmark_ocl",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.framework.cli",
+   "to": "kedro.__main__",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.framework.cli",
+   "to": "kedro.ipython",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.framework.hooks",
+   "to": "kedro.framework.session",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.framework.hooks",
+   "to": "kedro.runner",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.framework.project",
+   "to": "kedro.ipython",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.framework.startup",
+   "to": "kedro.ipython",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro_benchmarks.benchmark_datacatalog",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro_benchmarks.benchmark_runner",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.pipeline",
+   "to": "kedro_benchmarks.benchmark_runner",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.framework.session",
+   "to": "kedro.ipython",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.framework.project",
+   "to": "kedro.framework.startup",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.pipeline",
+   "to": "kedro.validation",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.validation",
+   "to": "kedro.framework.context",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.utils",
+   "to": "kedro.logging",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.pipeline",
+   "to": "kedro.ipython",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.utils",
+   "to": "kedro.ipython",
+   "evidence": "asymmetry",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.utils",
+   "to": "kedro.framework.session",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.config",
+   "to": "kedro.framework.hooks",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.utils",
+   "to": "kedro.framework.project",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.utils",
+   "to": "kedro.pipeline",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.utils",
+   "to": "kedro.framework.context",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.config",
+   "to": "kedro.framework",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.config",
+   "to": "kedro.framework.startup",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.framework",
+   "to": "kedro.framework.cli",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.framework.context",
+   "to": "kedro.framework.startup",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.framework.hooks",
+   "to": "kedro.framework.cli",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.framework.project",
+   "to": "kedro.framework.hooks",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro.framework",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro.framework.startup",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.io",
+   "to": "kedro.logging",
+   "evidence": "repair",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.pipeline",
+   "to": "kedro.framework",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.pipeline",
+   "to": "kedro.framework.startup",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.runner",
+   "to": "kedro.framework",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.runner",
+   "to": "kedro.framework.startup",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.utils",
+   "to": "kedro.framework",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.utils",
+   "to": "kedro.framework.hooks",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.utils",
+   "to": "kedro.framework.startup",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  },
+  {
+   "from": "kedro.utils",
+   "to": "kedro.runner",
+   "evidence": "lexical",
+   "adopt": false,
+   "strict": false,
+   "failed_gates": "not adopted loosely"
+  }
+ ]
+}

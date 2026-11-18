@@ -1,0 +1,341 @@
+- id: R-checkov-definitive-1
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.arm.checks
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.arm.checks imports checkov.common.models
+      in 100% of 257 sampled commits; coexisted 2301 days; strict: never crossed,
+      no path today, stability margin 0.84, 3x172 modules, 5 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-2
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.cloudformation.checks
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.cloudformation.checks imports
+      checkov.common.models in 100% of 270 sampled commits; coexisted 2415 days; strict:
+      never crossed, no path today, stability margin 0.56, 3x159 modules, 5 shared
+      neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-3
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.common.bridgecrew
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.common.bridgecrew imports checkov.common.models
+      in 100% of 266 sampled commits; coexisted 2361 days; strict: never crossed,
+      no path today, stability margin 0.16, 3x39 modules, 37 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-4
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.common.checks
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.common.checks imports checkov.common.models
+      in 100% of 270 sampled commits; coexisted 2415 days; strict: never crossed,
+      no path today, stability margin 0.11, 3x5 modules, 29 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-5
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.common.output
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.common.output imports checkov.common.models
+      in 100% of 270 sampled commits; coexisted 2415 days; strict: never crossed,
+      no path today, stability margin 0.20, 3x15 modules, 24 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-6
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.github
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.github imports checkov.common.models
+      in 100% of 149 sampled commits; coexisted 1744 days; strict: never crossed,
+      no path today, stability margin 0.80, 3x46 modules, 6 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-7
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.github_actions.checks
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.github_actions.checks imports
+      checkov.common.models in 100% of 137 sampled commits; coexisted 1694 days; strict:
+      never crossed, no path today, stability margin 0.65, 3x12 modules, 4 shared
+      neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-8
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.gitlab
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.gitlab imports checkov.common.models
+      in 100% of 148 sampled commits; coexisted 1737 days; strict: never crossed,
+      no path today, stability margin 0.78, 3x10 modules, 5 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-9
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.gitlab_ci
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.gitlab_ci imports checkov.common.models
+      in 100% of 121 sampled commits; coexisted 1625 days; strict: never crossed,
+      no path today, stability margin 0.76, 3x12 modules, 5 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-10
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.kubernetes.checks
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.kubernetes.checks imports checkov.common.models
+      in 100% of 264 sampled commits; coexisted 2350 days; strict: never crossed,
+      no path today, stability margin 0.65, 3x125 modules, 4 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-11
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.openapi
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.openapi imports checkov.common.models
+      in 100% of 126 sampled commits; coexisted 1650 days; strict: never crossed,
+      no path today, stability margin 0.78, 3x33 modules, 5 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-12
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.serverless.checks
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.serverless.checks imports checkov.common.models
+      in 100% of 258 sampled commits; coexisted 2304 days; strict: never crossed,
+      no path today, stability margin 0.55, 3x30 modules, 2 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-13
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.terraform.checks
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.terraform.checks imports checkov.common.models
+      in 100% of 270 sampled commits; coexisted 2415 days; strict: never crossed,
+      no path today, stability margin 0.52, 3x1021 modules, 5 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-14
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.terraform.context_parsers
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.terraform.context_parsers imports
+      checkov.common.models in 100% of 270 sampled commits; coexisted 2415 days; strict:
+      never crossed, no path today, stability margin 0.48, 3x11 modules, 3 shared
+      neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-15
+  kind: forbidden
+  from: checkov.common.util
+  to: checkov.arm.checks
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.arm.checks imports checkov.common.util
+      in 100% of 257 sampled commits; coexisted 2301 days; strict: never crossed,
+      no path today, stability margin 0.72, 32x172 modules, 3 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-16
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.json_doc
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.json_doc imports checkov.common.models
+      in 99% of 176 sampled commits; coexisted 2285 days; strict: never crossed, no
+      path today, stability margin 0.56, 3x6 modules, 8 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-17
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.policies_3d
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.policies_3d imports checkov.common.models
+      in 99% of 73 sampled commits; coexisted 1605 days; strict: never crossed, no
+      path today, stability margin 0.71, 3x13 modules, 6 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-18
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.sca_package_2
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.sca_package_2 imports checkov.common.models
+      in 99% of 94 sampled commits; coexisted 1605 days; strict: never crossed, no
+      path today, stability margin 0.73, 3x4 modules, 7 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-19
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.secrets
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.secrets imports checkov.common.models
+      in 99% of 211 sampled commits; coexisted 2285 days; strict: never crossed, no
+      path today, stability margin 0.77, 3x25 modules, 6 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-20
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.argo_workflows
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.argo_workflows imports checkov.common.models
+      in 98% of 116 sampled commits; coexisted 1605 days; strict: never crossed, no
+      path today, stability margin 0.76, 3x9 modules, 5 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-21
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.azure_pipelines
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.azure_pipelines imports checkov.common.models
+      in 98% of 99 sampled commits; coexisted 1605 days; strict: never crossed, no
+      path today, stability margin 0.76, 3x12 modules, 5 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-22
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.circleci_pipelines
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.circleci_pipelines imports checkov.common.models
+      in 98% of 113 sampled commits; coexisted 1605 days; strict: never crossed, no
+      path today, stability margin 0.73, 3x15 modules, 4 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-23
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.ansible
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.ansible imports checkov.common.models
+      in 97% of 78 sampled commits; coexisted 1605 days; strict: never crossed, no
+      path today, stability margin 0.85, 3x23 modules, 9 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-24
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.common.graph
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.common.graph imports checkov.common.models
+      in 97% of 238 sampled commits; coexisted 2285 days; strict: never crossed, no
+      path today, stability margin 0.14, 3x31 modules, 10 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-25
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.bicep.checks
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.bicep.checks imports checkov.common.models
+      in 94% of 145 sampled commits; coexisted 1800 days; strict: never crossed, no
+      path today, stability margin 0.62, 3x17 modules, 5 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
+- id: R-checkov-definitive-26
+  kind: forbidden
+  from: checkov.common.models
+  to: checkov.common.sca
+  source:
+    type: recovered
+    id: learned:strict
+    sentence: 'evidence: asymmetry+stability; checkov.common.sca imports checkov.common.models
+      in 94% of 114 sampled commits; coexisted 1605 days; strict: never crossed, no
+      path today, stability margin 0.55, 3x14 modules, 8 shared neighbours'
+  compiled_at: 811d0687902c
+  severity: medium
+  evaluable: true
