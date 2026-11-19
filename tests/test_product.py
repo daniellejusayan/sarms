@@ -24,6 +24,18 @@ def repo(tmp_path):
     return r
 
 
+def test_status_requires_finished_mine(tmp_path):
+    from sarms import product
+
+    out = tmp_path / "rms"
+    sthg = out / "sthg"
+    sthg.mkdir(parents=True)
+    (sthg / "ledger.duckdb").touch()
+
+    with pytest.raises(SystemExit, match="run `sarms mine` first"):
+        product.status(out, log=lambda s: None)
+
+
 def test_mine_certify_run_status(repo, tmp_path):
     from sarms import product
     from sarms.ledger.hypergraph import Ledger
@@ -60,11 +72,9 @@ def test_mine_certify_run_status(repo, tmp_path):
     assert json.loads((out / "run.json").read_text())["ledger"]["actions"] >= 4
 
 
-def test_git_url_resolves_to_named_checkout():
+def test_git_url_resolves_to_named_checkout(tmp_path):
     from sarms.mining.common import repo_name, resolve_repo_input
 
     assert repo_name("https://github.com/kedro-org/kedro.git") == "kedro"
     assert repo_name("git@github.com:kedro-org/kedro.git") == "kedro"
-
-    kedro = resolve_repo_input("https://github.com/kedro-org/kedro.git")
-    assert kedro.is_dir()
+    assert resolve_repo_input(str(tmp_path)) == tmp_path.resolve()

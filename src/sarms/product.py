@@ -5,9 +5,8 @@
     uv run sarms run     REPO [--out DIR] [--model ...] [--tests "..."] [--onto main] [--dry-run]
                                                                  mine (if needed) -> certify -> Differ on HEAD -> draft -> gate -> kernel -> ledger
     uv run sarms status  [--out DIR]                             one screen from the ledger
-    uv run sarms dst     [--seeds 200] [--level 1|2] [--out reports/dst-risk.md]   deterministic simulation: every scenario, risk labels
 
-Workflow (the product): mining -> STHG ledger -> architecture certificates -> loop (synthesizer, gate, kernel) -> DST verification.
+Workflow (the product): mining -> STHG ledger -> architecture certificates -> loop (synthesizer, gate, kernel).
 Humans appear nowhere in it; they read the ledger afterwards.
 """
 from __future__ import annotations
@@ -26,7 +25,7 @@ import yaml
 from sarms.differ.diff import diff_commit
 from sarms.kernel.apply import apply_decision, human_fixed
 from sarms.ledger.hypergraph import Ledger
-from sarms.mining.common import git, resolve_repo_input, sarms_data_paths
+from sarms.mining.common import git, repo_name, resolve_repo_input, sarms_data_paths
 from sarms.mining.gitlog import stream, to_frame
 from sarms.rules import certify as C
 from sarms.rules.compile import compile_repo, load_rules
@@ -85,7 +84,7 @@ def certify_ledger(repo, out=None, log=print):
     repo = resolve_repo_input(repo)
     out = rms_dir(repo, out)
     sthg = out / "sthg"
-    if not (sthg / "ledger.duckdb").exists():
+    if not (sthg / "meta.json").exists():
         raise SystemExit(f"no ledger at {sthg}; run `sarms mine` first")
     led = Ledger(sthg)
     meta = json.loads((sthg / "meta.json").read_text())
@@ -150,7 +149,7 @@ def run(repo, out=None, model=None, base_url=None, tests=None, onto=None, dry_ru
     repo = resolve_repo_input(repo)
     out = rms_dir(repo, out)
     sthg = out / "sthg"
-    if not (sthg / "ledger.duckdb").exists():
+    if not (sthg / "meta.json").exists():
         mine(repo, out, every=every, since=since, until=until, log=log)
     led = Ledger(sthg)
     rules, changes, verified = certify_ledger(repo, out, log=log)
@@ -236,6 +235,8 @@ def run(repo, out=None, model=None, base_url=None, tests=None, onto=None, dry_ru
 
 def status(out, log=print):
     out = Path(out)
+    if not (out / "sthg" / "meta.json").exists():
+        raise SystemExit(f"no ledger at {out / 'sthg'}; run `sarms mine` first")
     led = Ledger(out / "sthg")
     s = led.summary()
     acts = led.actions()
@@ -274,6 +275,10 @@ def clean(repo, confirm=False, log=print):
         elif path.exists():
             path.unlink()
             removed.append(str(path))
+    parent = Path("data") / repo_name(str(repo))
+    if parent.is_dir() and not any(parent.iterdir()):
+        parent.rmdir()
+        removed.append(str(parent))
     log("removed SARMS data:")
     for path in removed:
         log(f"  {path}")
@@ -315,11 +320,6 @@ def main(argv=None):
     p.add_argument("--yes", action="store_true", help="confirm removal of the local clone and SARMS results")
     p = sub.add_parser("status")
     p.add_argument("--out", required=True)
-    p = sub.add_parser("dst")
-    p.add_argument("--seeds", type=int, default=200)
-    p.add_argument("--level", type=int, default=1, choices=[1, 2])
-    p.add_argument("--out", default="reports/dst-risk.md")
-    p.add_argument("--scenario")
     a = ap.parse_args(argv)
     if a.cmd == "mine":
         mine(a.repo, a.out, a.every, a.since, a.until)
@@ -334,9 +334,6 @@ def main(argv=None):
         clean(a.repo, a.yes)
     elif a.cmd == "status":
         status(a.out)
-    elif a.cmd == "dst":
-        from sarms.sim.harness import main as dst_main  # noqa: PLC0415
-        dst_main(seeds=a.seeds, level=a.level, out=a.out, scenario=a.scenario)
     return 0
 
 

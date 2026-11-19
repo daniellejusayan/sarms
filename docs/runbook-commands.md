@@ -160,6 +160,4 @@ uv run sarms mine data/raw/kedro --out data/kedro/rms --every 25        # mining
 uv run sarms certify-ledger data/raw/kedro --out data/kedro/rms         # certificates -> verified rules (+ independent check)
 uv run sarms run data/raw/kedro --out data/kedro/rms --tests "python -m pytest -q" --dry-run   # the loop on HEAD
 uv run sarms status --out data/kedro/rms
-uv run sarms dst --seeds 10 --level 1                                   # every scenario, risk labels -> reports/dst-risk.md
-uv run sarms dst --seeds 3 --level 2 --scenario crossing_then_repair    # real git repos, whole loop
 ```

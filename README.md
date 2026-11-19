@@ -10,7 +10,7 @@ Chondamrongkul · team: Danielle Jerick M. Jusayan, Eaindray, Kanthi Phoosorn, W
 
 ## The product in one line
 
-`sarms mine` → `sarms certify-ledger` → `sarms run` → `sarms dst`: mining, the hypergraph ledger, architecture certificates, the loop (draft, gate, kernel), deterministic simulation. See `docs/product.md`.
+`sarms mine` → `sarms certify-ledger` → `sarms run`: mining, the hypergraph ledger, architecture certificates, and the repair loop (draft, gate, kernel). See `docs/product.md`.
 
 ## Layout
 
