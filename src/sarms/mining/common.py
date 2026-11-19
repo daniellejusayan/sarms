@@ -71,6 +71,7 @@ def sarms_data_paths(repo: str | os.PathLike[str]) -> list[Path]:
         Path(f"{raw}.draft"),
         Path(f"{raw}.kernel"),
         Path(f"{raw}.fi"),
+        Path(f"{raw}.ilcache"),
         DATA / name / "rms",
     ]
 

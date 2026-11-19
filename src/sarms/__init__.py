@@ -13,7 +13,7 @@ branch; ``--push`` also pushes that branch to the repository's origin.
 
 ADVANCED COMMANDS
   run, mine, certify-ledger, status, compile, check, replay, ledger, draft, learn,
-  adopt, certify, verify-rules, dst
+  adopt, certify, verify-rules
 
 Results are stored automatically under data/<repository>/rms.
 """
@@ -31,7 +31,7 @@ def main() -> None:
             "mine": ("sarms.product", ["mine"]), "certify-ledger": ("sarms.product", ["certify-ledger"]),
             "run": ("sarms.product", ["run"]), "auto": ("sarms.product", ["run"]),
             "clean": ("sarms.product", ["clean"]),
-            "status": ("sarms.product", ["status"]), "dst": ("sarms.product", ["dst"])}
+            "status": ("sarms.product", ["status"])}
     if not argv or argv[0] in ("-h", "--help") or argv[0] not in cmds:
         print(__doc__)
         sys.exit(0 if argv and argv[0] in ("-h", "--help") else 2)
